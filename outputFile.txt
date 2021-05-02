@@ -1,0 +1,15 @@
+This is the current map of the network;
+
+0_0_n Dir: E   1_0_n Dir: W   2_0_n Dir: D   
+0_1_n Dir: D   1_1_p Dir: E   2_1_c Dir: W   
+0_2_t Dir: D   1_2_p Dir: U   2_2_e Dir: D   
+0_3_n Dir: D   1_3_e Dir: N   2_3_t Dir: D   
+
+This is the updated map of the network, the thruster was requested to point North;
+The module was originally at (0, 2) and was moved to (0, 0)
+
+0_2_t Dir: N   1_0_n Dir: W   2_0_n Dir: D   
+0_1_n Dir: D   1_1_p Dir: E   2_1_c Dir: W   
+0_0_n Dir: E   1_2_p Dir: U   2_2_e Dir: D   
+0_3_n Dir: D   1_3_e Dir: N   2_3_t Dir: D   
+
