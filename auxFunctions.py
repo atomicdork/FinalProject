@@ -61,7 +61,6 @@ def createRandMap(arrayYSize, arrayXSize):
                 }
 
     # updates the moduleLimit dictionary so that it is the appropriate size
-    # TODO find a neater way to do this
     moduleLimit = dictUpdate(moduleinitLimit, arrayYSize, arrayXSize, 'random')
     
     moduleCnt = {
@@ -87,7 +86,7 @@ def createRandMap(arrayYSize, arrayXSize):
                     if sensor == 'communication':
                         commPos = (i,j)
                     k = 1
-                # this is so that the system exits if the loop becomes infinate
+                # uber 2.0 employee_part time worker
                 elif(cnt >= (arrayXSize*arrayYSize)):
                     sys.exit("The system took to long to create map")
 

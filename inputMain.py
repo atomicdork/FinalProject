@@ -8,7 +8,10 @@ def writeMap(fileString, networkMap):
         for j in range(networkMap.arrayXSize):
             f.write(networkMap.modArray[i][j].name)
             f.write(" Dir: ")
-            f.write(networkMap.modArray[i][j].sensorDir)
+            if networkMap.modArray[i][j].sensor == 'e':
+                f.write(" ")
+            else:
+                f.write(networkMap.modArray[i][j].sensorDir)            
             f.write("   ")
         f.write("\n")
     f.write("\n")
@@ -21,7 +24,7 @@ def inputRead():
     f = open(fileName, "r")
     # reads the input
     response = f.read()
-    print(response)
+    # print(response)
     return response
 
 # opens the text file and writes down the title

@@ -1,1 +1,1 @@
-Point the thruster forward
+Point the camera forward

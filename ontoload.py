@@ -14,7 +14,8 @@ class ontoNet(mB.distNetwork):
         self.ontoArray = []
         self.cameraCnt = 0
         self.thrusterCnt = 0
-        self.onto = owlready2.get_ontology("file://ontofilepls").load()
+        # self.onto = owlready2.get_ontology("file://ontofilepls").load()
+        self.onto = owlready2.get_ontology("file://ontofiletest").load()
 
     def testFunct(self):
         i = 3
@@ -77,16 +78,8 @@ class ontoNet(mB.distNetwork):
 
     # Checks if the words are in the ontology
     def inputOntoCheck(self, inputStr):
-        # this is a dictionary storing the misc direction values
-        directionDic = {
-                        "forward"   : "North",
-                        "forwards"  : "North",
-                        "backwards" : "South",
-                        "backward"  : "South",
-                        "back"      : "South",
-                        "left"      : "West",
-                        "right"     : "East"
-        }
+        # set up holder
+        dirValue = "Null"
         # lists all of the classes in the ontology
         classFullList = list(self.onto.classes())
 
@@ -108,9 +101,12 @@ class ontoNet(mB.distNetwork):
             for dirElement in dirClassList:
                 # checking if direction was mentioned
                 if testWord.casefold() == dirElement.name.casefold():
-                    dirValue = testWord.casefold()
-            if testWord in directionDic.keys():
-                dirValue = directionDic[testWord]
+                    dirValue = testWord
+            # quiries all of the comments
+            resultArray = self.onto.search(comment = f"{testWord}*")
+            if len(resultArray) != 0:
+                dirValue = resultArray[0].name
+                # dirValue = directionDic[testWord]
 
         # returns the element and the direction of said element
         return [modElement, dirValue]
@@ -209,10 +205,10 @@ class ontoNet(mB.distNetwork):
         self.changeModPos((currentY, currentX), (finalY, finalX))
         return currentY, currentX, finalY, finalX
 
-networkMap = ontoNet()
-networkMap.createNetwork()
-networkMap.createOntoMap()
-networkMap.changeModAndDir('camera', 'West')
+# networkMap = ontoNet()
+# networkMap.createNetwork()
+# networkMap.createOntoMap()
+# networkMap.changeModAndDir('camera', 'West')
 # print(networkMap.inputOntoCheck("Point the thruster back"))
 # print(networkMap.findComponentPos('camera'))
 # networkMap.removeFormatOnto()
